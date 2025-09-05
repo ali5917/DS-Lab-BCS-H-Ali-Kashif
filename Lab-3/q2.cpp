@@ -18,6 +18,7 @@ Node* mergeSortedLists (Node *head1, Node *head2) {
     if (!head1) return head2; 
     if (!head2) return head1;
     
+    // assigining new head
     Node *head3 = nullptr, *tail3 = nullptr;
     if (head1->value < head2->value) {
         head3 = tail3 = head1;
@@ -27,6 +28,7 @@ Node* mergeSortedLists (Node *head1, Node *head2) {
         head2 = head2->next;
     }
 
+    // traversing both and inserting the links to new list
     while (head1 && head2) {
         if (head1->value < head2->value) {
             tail3->next = head1;
