@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort (int arr [], int size) {
-    for (int i = size - 1; i >= 0; i--) {
-        bool noSwap = true;
-        for (int j = 0; j < i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
-                noSwap = false;
-            }
+void selectionSort (int arr [], int size) {
+    int index = 0, minIndex;
+    while (index < size - 1) {
+        minIndex = index;
+        for (int i = index + 1; i < size; i++) {
+            if (arr[i] < arr[minIndex]) minIndex = i;
         }
-        if (noSwap) return;
+
+        swap(arr[index], arr[minIndex]);
+        index++;
     } 
 }
 
@@ -34,14 +34,13 @@ int main () {
         cin >> arr[i];
     }
     
-    // performing bubble sort 
+    // performing selection sort 
     cout << "Original Array:\n";
     displayArray(arr, size);
     
-    bubbleSort(arr, size);
+    selectionSort(arr, size);
     
     cout << "\nSorted Array:\n";
     displayArray(arr, size);
-
     delete [] arr;
 }
