@@ -5,7 +5,6 @@ int interpolationSearch (const int arr [], int size, int target) {
     int low = 0, high = size - 1, pos;
 
     while (low <= high) {
-
         // avoid division by zero
         if (arr[high] == arr[low]) {
             if (arr[low] == target) return low;
