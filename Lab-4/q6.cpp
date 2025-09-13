@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void combSort (int arr [], int size) {  
+void combSort (int arr [], int size, int &comparisons, int &swaps) {  
     int gap = size;
     bool noSwap = false;
     
@@ -11,8 +11,10 @@ void combSort (int arr [], int size) {
         if (gap < 1) gap = 1;
 
         for (int i = 0; i + gap < size; i++) {
+            comparisons++;
             if (arr[i] > arr[i + gap]) {
                 swap(arr[i], arr[i + gap]);
+                swaps++;
                 noSwap = false;
             }
         }
@@ -40,13 +42,17 @@ int main () {
     }
     
     // performing comb sort 
+    int comparisons = 0, swaps = 0;
     cout << "Original Array:\n";
     displayArray(arr, size);
     
-    combSort(arr, size);
+    combSort(arr, size, comparisons, swaps);
     
     cout << "\nSorted Array:\n";
     displayArray(arr, size);
     
+    cout << "\nTotal comparisons: " << comparisons << endl;
+    cout << "Total swaps: " << swaps << endl;
+
     delete [] arr;
-}
+}   
