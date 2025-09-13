@@ -16,13 +16,14 @@ void insertionSort (int arr [], int size) {
 }
 
 int binarySearch (int arr [], int size, int target) {
-    int low = 0, high = size - 1;
-    while (low < high) {
-        mid = (low + mid) / 2;
+    int low = 0, high = size - 1, mid;
+    while (low <= high) {
+        mid = (low + high) / 2;
         if (arr[mid] == target) return mid;
-        if (target < arr[low]) low = mid;
-        else high = mid;
+        if (target < arr[mid]) high = mid - 1;
+        else low = mid + 1;
     }
+    return -1;
 }
 
 void displayArray (const int arr [], int size) {
@@ -34,7 +35,7 @@ void displayArray (const int arr [], int size) {
 
 int main () {
     // taking array as an input
-    int size;
+    int size, target;
     cout << "Enter the size for an Array: ";
     cin >> size;
 
@@ -53,6 +54,14 @@ int main () {
     
     cout << "\nSorted Array:\n";
     displayArray(arr, size);
+
+    cout << "Enter the target to find: ";
+    cin >> target;
+
+    // performing binary search
+    int pos = binarySearch(arr, size, target);
+    if (pos == -1) cout << "Element " << target << " not found in the array!\n";
+    else cout << "The element "<< target << " is at index " << pos << endl; 
     
     delete [] arr;
 }
