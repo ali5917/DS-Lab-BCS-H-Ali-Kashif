@@ -42,5 +42,6 @@ int main () {
     
     cout << "\nSorted Array:\n";
     displayArray(arr, size);
+    
     delete [] arr;
 }
