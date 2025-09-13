@@ -1,27 +1,21 @@
 #include <iostream>
 using namespace std;
 
-void insertionSort (int arr [], int size) {
-    int index = 1;
-    for (int i = index; i < size; i++) {
-        int current = arr[i];
+void combSort (int arr [], int size) {  
+    int gap = size;
+    bool noSwap = false;
+    
+    while (gap > 1 || !noSwap) {
+        noSwap = true;
+        gap /= 1.3;
+        if (gap < 1) gap = 1;
 
-        int j = i - 1;
-        while (j >= 0 && arr[j] > current) {
-            arr[j + 1] = arr[j];
-            j--;
-        } 
-        arr[j + 1] = current;
-    }
-}
-
-int binarySearch (int arr [], int size, int target) {
-    int low = 0, high = size - 1;
-    while (low < high) {
-        mid = (low + mid) / 2;
-        if (arr[mid] == target) return mid;
-        if (target < arr[low]) low = mid;
-        else high = mid;
+        for (int i = 0; i + gap < size; i++) {
+            if (arr[i] > arr[i + gap]) {
+                swap(arr[i], arr[i + gap]);
+                noSwap = false;
+            }
+        }
     }
 }
 
@@ -45,11 +39,11 @@ int main () {
         cin >> arr[i];
     }
     
-    // performing insertion sort 
+    // performing comb sort 
     cout << "Original Array:\n";
     displayArray(arr, size);
     
-    insertionSort(arr, size);
+    combSort(arr, size);
     
     cout << "\nSorted Array:\n";
     displayArray(arr, size);
