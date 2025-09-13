@@ -37,6 +37,7 @@ int main () {
     // performing bubble sort 
     cout << "Original Array:\n";
     displayArray(arr, size);
+    
     bubbleSort(arr, size);
     
     cout << "\nSorted Array:\n";
