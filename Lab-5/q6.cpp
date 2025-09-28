@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define N 5   // size
+const int N = 5;
 
 // to print the solution matrix
 void printSolution(int sol[N][N]) {
@@ -17,7 +17,7 @@ bool isSafe(int maze[N][N], int x, int y, int sol[N][N]) {
     return (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] == 1 && sol[x][y] == 0); 
 }
 
-// Backtracking utility for 2 directions
+// Backtracking utility for 4 directions
 bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N]) {
     // WHEN destination is reached
     if (x == N - 1 && y == N - 1) {
