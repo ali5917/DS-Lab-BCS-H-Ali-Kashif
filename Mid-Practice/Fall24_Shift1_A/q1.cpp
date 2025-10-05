@@ -91,5 +91,4 @@ int main() {
         cout << target << " has hanger number " << result;
     else
         cout << "Customer not found";
-
 }
