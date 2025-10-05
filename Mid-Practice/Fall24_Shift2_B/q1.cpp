@@ -3,7 +3,7 @@
 // If two elements have the same frequency, keep their original order from the first array.
 // Elements not in the second array appear at the end, also in their original order.
 
-// INCORRECT CODE
+// ------ INCORRECT CODE ------
 
 #include <iostream>
 #include <string>
