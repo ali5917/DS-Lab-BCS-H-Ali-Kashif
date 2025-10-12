@@ -22,7 +22,10 @@ class Queue {
                 return;
             }
 
-            if (isEmpty()) front = 0;
+            if (isEmpty()) {
+                front = 0;
+            }
+            front = (isEmpty()) ? 0 : front;
             arr[++rear] = x;
             cout << "Enqueued: " << x << endl;
             return;
