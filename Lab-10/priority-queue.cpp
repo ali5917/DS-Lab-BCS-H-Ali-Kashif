@@ -47,7 +47,7 @@ public:
             cout << "No patients waiting.\n";
             return;
         }
-        cout << "Treating patient: " << front->name << endl;
+        cout << "\nTreating patient: " << front->name << endl;
         Patient* temp = front;
         front = front->next;
         delete temp;
@@ -84,8 +84,7 @@ public:
         Patient* current = front;
         cout << "\nPatients in queue (highest priority first):\n";
         while (current) {
-            cout << current->name << " | Severity: " << current->severity 
-                 << " | Arrival Time: " << current->arrivalTime << endl;
+            cout << current->name << " | Severity: " << current->severity << " | Arrival Time: " << current->arrivalTime << endl;
             current = current->next;
         }
     }
